@@ -28,6 +28,6 @@ Users should be able to:
 
 ## Result
 
-Solution URL: [Add solution URL here](https://your-solution-url.com)
+Solution URL: [Bookmark landing page](https://bookmark-landing-page-abelqh9.vercel.app)
 
 ![](./result.png)

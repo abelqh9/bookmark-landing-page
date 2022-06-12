@@ -1,0 +1,75 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.principal-section {
+
+    &__img-container {
+        width: 100%;
+    }
+
+    &__img {
+        filter: drop-shadow($drop-shadow-value);
+    }
+    
+    &__texts-container {
+        @include flex(column, $gap: 1.5rem);
+    }
+
+    &__h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        color: $very-dark-blue;
+    }
+
+    &__p {
+        color: $grayish-blue;
+    }
+
+    &__buttons {
+        @include flex(row, $gap: 1rem);
+    }
+
+    @include general-button($background-color: $soft-blue,
+    $color: white);
+
+    &__button--gray {
+        @extend .principal-section__button;
+        background-color: $grayish-blue-10;
+        border-color: $grayish-blue-10;
+        color: $very-dark-blue;
+    }
+
+    &__button--gray:hover {
+        background-color: white;
+        border-color: $very-dark-blue;
+        color: $very-dark-blue;
+
+    }
+
+    @include flex(column, $gap: 4rem);
+
+    @include rounded-image-background($color: $soft-blue, $top: 35%,
+        $right: var(--invert-lateral-paddings), $border-radius: 0px 0px 0px 40%,
+        $width: 90%, $height:80%
+    );
+
+    @include desktop(){
+
+        gap: 2rem;
+        flex-direction: row-reverse;
+
+        &__img-container {
+            text-align: right;
+            min-width: 50%;
+        }
+
+        &__texts-container {
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        &__h1 {
+            font-size: 2.5rem;
+        }
+    }
+}

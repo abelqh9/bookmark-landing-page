@@ -1,0 +1,14 @@
+@use '../mixins' as *;
+
+.social-medias {
+
+    &__li{
+        cursor: pointer;
+    }
+    
+    &__li:hover{
+        filter: invert(44%) sepia(36%) saturate(1323%) hue-rotate(316deg) brightness(101%) contrast(96%);
+    }
+
+    @include flex(row, $gap: 2rem);
+}

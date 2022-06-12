@@ -1,0 +1,53 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.extension {
+
+    border-radius: $border-radius-value;
+    box-shadow: $box-shadow-value;
+    padding: 3rem 1.5rem 1.5rem;
+    width: 100%;
+    max-width: 17.5rem;
+
+    &__logo-img {
+        margin-bottom: 1rem;
+    }
+
+    &__h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $very-dark-blue;
+        margin-bottom: 0.5rem;
+    }
+
+    &__span {
+        color: $grayish-blue;
+        margin-bottom: 2.5rem;
+    }
+ 
+    &__dots-img {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    &--start{
+        @extend .extension;
+    }
+
+    &--end{
+        @extend .extension;
+    }
+
+    @include general-button($background-color: $soft-blue,
+    $color: white, $width: 100%);
+    
+    @include desktop(){
+        &--start{
+            align-self: flex-start;
+        }
+    
+        &--end{
+            align-self: flex-end;
+        }
+    }
+}

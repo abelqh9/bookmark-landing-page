@@ -1,0 +1,65 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.nav-modal {
+
+    padding: 1.5rem var(--lateral-paddings);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    overflow-y:scroll;
+    transform: translateX(-100%);
+    background-color: rgba($very-dark-blue ,0.95) ;
+    color: white;
+    transition: {
+        property: transform;
+        duration: 0.25s;
+    };
+
+    &__icons {
+        width: 100%;
+        @include flex($justify: space-between);
+    }
+
+    &__nav {
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    &__ul {
+        border-top: 1px solid $grayish-blue-50;
+    }
+
+    &__li {
+        border-bottom: 1px solid $grayish-blue-50;
+    }
+
+    &__a {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.25rem;
+    }
+
+    &__a--button {
+        @extend .nav-modal__a;
+        border-radius: $border-radius-value;
+        margin-top: 1.5rem;
+        padding: 0.5rem;
+        border: 2px solid white;
+        font-weight: 500;
+    }
+
+    &--visible{
+        @extend .nav-modal;
+        transform: translateX(0%);
+    }
+
+    &__close-icon {
+        cursor: pointer;
+    }
+    
+    @include flex(column, $gap:4rem, $justify: flex-start);
+}

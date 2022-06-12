@@ -1,0 +1,52 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+
+    padding: 1.5rem var(--lateral-paddings) 0;
+    
+    &__icons-div {
+        @include flex(row, space-between);
+        flex-grow: 1;
+    }
+
+    &__hamburguer-icon {
+        cursor: pointer;
+    }
+
+    &__ul {
+        display: none;
+    }
+    
+    &__li:hover{
+        color: $Soft-red;
+    }
+
+    &--hidden{
+        @extend .header;
+        visibility: hidden;
+    }
+
+    @include flex(row, space-between);
+    
+    @include general-button($background-color: $Soft-red,
+    $color: white, $width: 7.5rem, $padding: 0.75rem);
+    
+    @include desktop(){
+
+        padding: 2.5rem var(--lateral-paddings) 0;
+        gap: 1.5rem;
+        
+        &__hamburguer-icon {
+            display: none;
+        }
+        
+        &__ul {
+            @include flex(row, $gap: 1.5rem);
+            color: $very-dark-blue;
+            flex-grow: 1;
+            font-weight: 400;
+            
+        }
+    }
+}

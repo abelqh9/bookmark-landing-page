@@ -1,0 +1,74 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.feature {
+    
+    
+
+    &__img-container::after{
+        max-height: 17.5rem;
+    }
+
+    &__img{
+        filter: drop-shadow($drop-shadow-value);
+    }
+        
+    &__texts-container {
+        @include flex(column, $gap: 0.75rem);
+    }
+
+    &__p {
+        color: $grayish-blue;
+    }
+
+    &--visible {
+        @extend .feature;
+        display: flex;
+    }
+
+    @include flex(column, $gap: 4rem, $display: none);
+
+    @include rounded-image-background($color: $soft-blue, $bottom: -10%
+    , $left: var(--invert-lateral-paddings), $height: 80%, $width: 87.5%,
+    $border-radius: 0px 0% 37.5% 0px){
+        width: 100%;
+    }
+
+    @include general-h2();
+
+    @include general-button($background-color: $soft-blue,
+    $color: white, $width: 7.5rem, $padding: 0.75rem){
+        display: none;
+    };
+
+    @include desktop(){
+        
+        &__img-container{
+            width: initial;
+            height: 25rem;
+            @include flex();
+        }
+
+        &__img{
+            width: 32.5rem;
+        }
+
+        &--visible {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        &__texts-container {
+            width: 27.5rem;
+            align-items: flex-start;
+            text-align: left;
+            gap: 1.5rem;
+        }
+        
+        &__button {
+            display: block;           
+        }
+
+    }
+}

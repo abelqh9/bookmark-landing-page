@@ -1,0 +1,20 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.questions {
+
+    width: 100%;
+    border-top: 1px solid $grayish-blue-50;
+
+    @include flex(column);
+
+    @include general-button($background-color: $soft-blue,
+        $color: white, $width: 7.5rem){
+        margin-top: 3rem;
+    };
+
+    @include desktop(){
+        width: 60%;
+        min-width: 30rem;
+    }
+}

@@ -1,0 +1,29 @@
+// HEADER
+@use './components/header';
+@use './components/nav-modal';
+// MAIN
+@use './components/main';
+@use './components/principal-section';
+@use './components/secundary-section';
+@use './components/features';
+@use './components/feature';
+@use './components/extensions';
+@use './components/extension';
+@use './components/questions';
+@use './components/question';
+// ASIDE
+@use './components/aside';
+// FOOTER
+@use './components/footer';
+@use './components/social-medias';
+
+.body {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.body--no-scroll {
+    @extend .body;
+    overflow-y: hidden;
+    height: 100vh;
+}

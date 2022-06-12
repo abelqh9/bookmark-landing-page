@@ -1,0 +1,101 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.features {
+
+    width: 100%;
+    
+    &__ul {
+        width: 100%;
+        border-bottom: 1px solid $grayish-blue-50;
+        position: relative;
+    }
+
+    &__ul--first{
+        @extend .features__ul;
+    }
+
+    &__ul--second{
+        @extend .features__ul;
+    }
+
+    &__ul--third{
+        @extend .features__ul;
+    }
+
+    &__li {
+        cursor: pointer;
+        border-top: 1px solid $grayish-blue-50;
+        padding: 1rem 0;
+        font-weight: 500;
+        position: relative;
+    }
+
+    &__li:hover {        
+        color: $Soft-red;
+    }
+
+    &__li--active{
+        @extend .features__li;
+    }
+    
+    &__li--active::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 45%;
+        background-color: $Soft-red;
+        height: 0.25rem;
+        transform: translateX(-50%);
+    }
+
+    @include flex(column, $gap: 4rem);
+
+    @include desktop(){
+
+        &__ul{
+            @include flex($gap: 4rem, $justify: space-between);
+            max-width: 100%;
+        }
+
+        &__ul::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: calc((100% - 8rem) / 3);
+            background-color: $Soft-red;
+            height: 0.25rem;
+            transition: {
+                property: left, transform;
+                duration: 0.25s;
+            };
+        }
+
+        &__ul--first::after{
+            left: 0%;
+            transform: translateX(0%);
+        }
+
+        &__ul--second::after{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &__ul--third::after{
+            left: 100%;
+            transform: translateX(-100%);
+        }
+        
+        &__li {
+            border: none;
+            padding: 1rem;
+            // width: 15rem;
+            width: calc((100% - 8rem) / 3);
+        }
+
+        &__li--active::after{
+            width: 0%;
+        }
+    }
+}

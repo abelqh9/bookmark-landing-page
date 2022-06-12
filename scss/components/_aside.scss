@@ -1,0 +1,133 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.aside {
+    
+    padding: 5rem var(--lateral-paddings);
+    background-color: $soft-blue;
+    color: white;
+
+    &__span {
+        font-weight: 500;
+        letter-spacing: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    &__form {
+        width: 100%;
+        @include flex(column, $gap: 1rem, $aling: stretch);
+    }
+
+    &__input-container{
+        position: relative;
+    }
+    
+    &__input-container--error{
+        margin-bottom: 2rem;
+        @extend .aside__input-container;
+    }
+
+    &__input-container--success{
+        @extend .aside__input-container--error;
+    }
+    
+    &__input-container--error::before {
+        content: "Whoops, make sure it's an email";
+        position: absolute;
+        background-color: $Soft-red;
+        color: white;
+        width: 100%;
+        height: 2rem;
+        bottom: -2rem;
+        @include flex($justify: flex-start);
+        padding: 0.5rem;
+        border-bottom-left-radius: $border-radius-value;
+        border-bottom-right-radius: $border-radius-value;
+        font-size: 0.9rem;
+    }
+
+    &__input-container--success::before{
+        content: "Correct email :)";
+        background-color: green;
+    }
+
+    &__input-container--error::after {
+        content: '';
+        position: absolute;
+        background-image: url('../../images/icon-error.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 1rem;
+        height: 1rem;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+    }
+
+    &__input-container--success::after{
+        content: initial;
+    }
+    
+    &__input {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 1rem 1.5rem;
+        padding-right: 2.5rem;
+        padding-right: 3rem;
+        border-radius: $border-radius-value;
+        border-top-left-radius: $border-radius-value;
+        border-top-right-radius: $border-radius-value;
+        color: $very-dark-blue;
+        font-size: 1rem;
+    }
+    
+    &__input--error{
+        @extend .aside__input;
+        border: 2px solid $Soft-red;
+        border-radius: 0;
+        border-top-left-radius: $border-radius-value;
+        border-top-right-radius: $border-radius-value;
+    }
+
+    &__input--success{
+        @extend .aside__input--error;
+        border-color: green;
+    }
+
+    &__input::placeholder{
+        opacity: 0.5;
+    }
+
+    @include general-button($background-color: $Soft-red,
+    $width: 100%);
+
+    @include flex(column, $gap: 1.5rem);
+
+    @include general-h2($color: white);
+
+    @include desktop(){
+
+        &__h2 {
+            width: 35%;
+            min-width: 25rem;
+        }
+        
+        &__form {
+            width: 40%;
+            min-width: 25rem;
+            flex-direction: row;
+        }
+        &__input-container{
+            width: 65%;
+        }
+
+        &__input-container--error{
+            margin-bottom: 0rem;
+        }
+        
+        &__button {
+            width: 35%;
+        }
+    }
+}

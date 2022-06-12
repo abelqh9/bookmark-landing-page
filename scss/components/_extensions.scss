@@ -1,0 +1,10 @@
+@use '../mixins' as *;
+
+.extensions {
+    
+    @include flex(row, $gap: 4rem, $wrap: wrap);
+
+    @include desktop(){
+        min-height: 30rem;
+    }
+}

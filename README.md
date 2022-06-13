@@ -6,6 +6,7 @@ This is a solution to the [Bookmark landing page challenge on Frontend Mentor](h
 
 - [The challenge](#the-challenge)
 - [Built with](#built-with)
+- [What i learned](#what-i-learned)
 - [Result](#result)
 
 ## The challenge
@@ -25,6 +26,10 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - [Sass](https://sass-lang.com/)
+
+## What I learned
+
+I mainly learned how the workflow is with SASS, and how it is useful for CSS scalability (mixins/partials/extends)
 
 ## Result
 
